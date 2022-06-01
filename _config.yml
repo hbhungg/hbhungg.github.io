@@ -23,8 +23,8 @@ email: bahung1tt@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Place for my poorly written thoughts
 domain: "hbhung.github.io"
-url: "https://hbhungg.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "https://hbhungg.github.io/blog/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/blog/" # the subpath of your site, e.g. /blog
 # twitter_username: jekyllrb
 github_username:  hbhungg
 
