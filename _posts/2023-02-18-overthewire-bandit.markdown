@@ -1,6 +1,4 @@
-# overthewire.org Bandit game
-These are my solution to the [Bandit game on overthewire.org](https://overthewire.org/wargames/bandit/)
-Bandit games are very easy and serve as a good introduction to using Linux. (I did them because im bored and wanted a memory refresh).
+These are my solution to the [Bandit game on overthewire.org](https://overthewire.org/wargames/bandit/). They are quite easy and serves as a good introduction to using Linux and its tools. *(I did them because im bored and wanted a memory refresh).*
 
 ## Level 0
 ssh into the server with the given credentials.
