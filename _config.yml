@@ -32,6 +32,8 @@ github_username:  hbhungg
 theme: minima
 plugins:
   - jekyll-feed
+kramdown:
+  hard_wrap: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
