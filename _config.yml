@@ -21,7 +21,7 @@
 title: Just another blog
 email: bahung1tt@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Place for my poorly written thoughts
+  Storage for randoms thoughts
 domain: "hbhung.github.io"
 url: "https://hbhungg.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -32,6 +32,8 @@ github_username:  hbhungg
 theme: minima
 plugins:
   - jekyll-feed
+
+# Make Jekyll's markdown render engine to take <br> as literal.
 kramdown:
   hard_wrap: true
 
