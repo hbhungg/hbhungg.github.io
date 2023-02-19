@@ -239,6 +239,8 @@ $ echo I am user bandit23 | md5sum | cut -d ' ' -f 1
 $ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
 ```
 
+<br> 
+
 ## Level 23 → Level 24
 Same as above, look at `/etc/cron.d/cronjob_bandit24` cronjob.
 ```bash
@@ -281,6 +283,8 @@ Notice the last 2 char "wx". It means that we have write and execute permission 
 cat /etc/bandit_pass/bandit24 > /tmp/password24
 ```
 After waiting for 1 minutes (that's the cronjob schedule), we can cat `/tmp/password24` to get bandit24 password.
+
+<br> 
 
 ## Level 24 → Level 25
 Generate all of the possible combinations of 4-digit code with bandit24 password in form {password} {secret code} into `/tmp/passwords.txt`.
