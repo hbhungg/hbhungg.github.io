@@ -186,14 +186,14 @@ echo "password" | nc -l 4444 &
 Look inside the bandit22's cronjob `cat /etc/cron.d/cronjob_bandit22` return:
 
 ```bash
-@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null                                           
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
 * * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
 ```
 
 It appears that this cronjob will execute the `/usr/bin/cronjob_bandit22.sh` shell script. Inspect the shell script yield:
 ```bash
-#!/bin/bash                                                                                          
-chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv                                                      
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 ```
 
@@ -239,13 +239,13 @@ $ echo I am user bandit23 | md5sum | cut -d ' ' -f 1
 $ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
 ```
 
-<br> 
+<br>
 
 ## Level 23 → Level 24
 Same as above, look at `/etc/cron.d/cronjob_bandit24` cronjob.
 ```bash
-@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null                                           
-* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null  
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
 ```
 Check the `/usr/bin/cronjob_bandit24.sh` script.
 ```bash
@@ -277,14 +277,14 @@ $ ls -ld /var/spool/bandit24/foo
 drwxrwx-wx 8 root bandit24 4096 Feb 19 12:15 /var/spool/bandit24/foo
 ```
 
-Notice the last 2 char "wx". It means that we have write and execute permission in it. Let's create a script that will fetch the password like the last level. 
+Notice the last 2 char "wx". It means that we have write and execute permission in it. Let's create a script that will fetch the password like the last level.
 ```bash
 #!/bin/bash
 cat /etc/bandit_pass/bandit24 > /tmp/password24
 ```
 After waiting for 1 minutes (that's the cronjob schedule), we can cat `/tmp/password24` to get bandit24 password.
 
-<br> 
+<br>
 
 ## Level 24 → Level 25
 Generate all of the possible combinations of 4-digit code with bandit24 password in form {password} {secret code} into `/tmp/passwords.txt`.
@@ -302,5 +302,75 @@ Then just feed `/tmp/passwords.txt` into the port 30002.
 ```bash
 cat /tmp/passwords.txt | nc localhost 30002
 ```
-*At first, I did not know that you can pass the whole 10000 inputs at the same time, so I created a Python script that talk to the port and receive data for every input. While it was probably correct and could work, I never got to see the answer since the port just kept shutting down (erno 32 broken pipe). So thank you to [this blog](https://mayadevbe.me/posts/overthewire/bandit/level25/). 
+*At first, I did not know that you can pass the whole 10000 inputs at the same time, so I created a Python script that talk to the port and receive data for every input. While it was probably correct and could work, I never got to see the answer since the port just kept shutting down (erno 32 broken pipe). So thank you to [this blog](https://mayadevbe.me/posts/overthewire/bandit/level25/).
 Also their generator in bash look much nicer than mine.*
+
+<br>
+
+## Level 25 → Level 26
+Ok so this level is quite interesting and is definitely require much more "outside the box" thinking. This entry would be different from previous entries, as I am trying to log my thought process.
+
+After login to bandit25, we immediately saw `bandit26.sshkey` (bandit26's private ssh key) in the home dir. Trying to login normally using this ssh key results in a connect and immediate connection close. The level guide said that bandit26 does not use `/bin/bash` but something else, so we should check what shell its using.
+
+```bash
+$ cat /etc/passwd | grep bandit26
+bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+```
+Check for `/usr/bin/showtext` yield:
+```bash
+#!/bin/sh
+
+export TERM=linux
+
+exec more ~/text.txt
+exit 0
+```
+So, this script call `more` on `~/text.txt` and immediately exit, that explain why we got immediately kick out of the connection. Going back to the connection output to see if there are any extra text printing out from more, and found this.
+
+```
+  _                     _ _ _   ___   __
+ | |                   | (_) | |__ \ / /
+ | |__   __ _ _ __   __| |_| |_   ) / /_
+ | '_ \ / _` | '_ \ / _` | | __| / / '_ \
+ | |_) | (_| | | | | (_| | | |_ / /| (_) |
+ |_.__/ \__,_|_| |_|\__,_|_|\__|____\___/
+```
+
+Cute logo, but that does not offer any more clue. At this point, I was quite stuck, I kinda guess that the attack vector would lies in the `more` program here, but not really sure how.
+
+But then I had an epiphany, you can edit the current file `more` is by pressing `v`, and editing file means that you have access to `vim`, or particularly, [its ability to run shell command with `:!`](https://superuser.com/questions/285500/how-to-run-unix-commands-from-within-vim). You can even choose the shell you want to run with `:set shell=/bin/bash`, thereby bypassing the user default bogus shell.
+
+The real kicker of this level is how to stay in `more` pager. Turn out, the solution is to resize your own terminal smaller height wise so that `more` cannot display the whole output. After that, its smooth sailing.
+Press `v` to enter Vim, do `:set shell=/bin/bash`, then `:shell`. You now gain `bash` shell.
+
+<br>
+
+## Level 26 → Level 27
+This continue directly from the last level after gaining `bash` shell inside Vim. 
+
+There is a binary `bandit27-do`, which is the same as level 19 → level 20. Use it to retrived bandit27's password.
+
+```bash
+./bandit27-do cat /etc/bandit_pass/bandit27
+```
+
+<br>
+
+## Level 27 → Level 28 → Level 29
+```bash
+git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo
+```
+The password is in README.md
+
+<br>
+
+## Level 28 → Level 29
+```bash
+git clone ssh://bandit28-git@bandit.labs.overthewire.org:2220/home/bandit28-git/repo
+```
+The password is in README.md, but in the previous commit. View changes with `git diff HEAD~1`.
+
+<br>
+
+## Level 29 → Level 30 
+The password is also in README.md, but in branch `dev`. Do `git checkout dev`.
