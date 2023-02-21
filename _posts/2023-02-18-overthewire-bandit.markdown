@@ -356,7 +356,7 @@ There is a binary `bandit27-do`, which is the same as level 19 → level 20. Use
 
 <br>
 
-## Level 27 → Level 28 → Level 29
+## Level 27 → Level 28
 ```bash
 git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo
 ```
@@ -374,3 +374,51 @@ The password is in README.md, but in the previous commit. View changes with `git
 
 ## Level 29 → Level 30 
 The password is also in README.md, but in branch `dev`. Do `git checkout dev`.
+
+<br>
+
+## Level 30 → Level 31 
+```basn
+git tag
+git show secret
+```
+
+<br>
+
+## Level 31 → Level 32
+Follow README.md instruction
+
+<br>
+
+## Level 32 → Level 33
+Bandit31's shell is called `UPPERCASE` shell, where every input is uppercase.
+
+```bash
+WELCOME TO THE UPPERCASE SHELL
+>> ls
+sh: 1: LS: not found
+>> CD .
+sh: 1: CD: not found
+```
+This lead to problem as it prevent the ability to use all of the commands that have alphabetical in it. To solve this, we have to find any command that are not aphabetical.
+Usually, the interactive shell hold what type of shell it is using in `$0`. This is perfect as that particular command does not change when uppercased, and it will open up a new interactive shell. 
+
+```bash
+>> $0
+$ ls
+uppershell
+$ cd ../bandit33
+$ cat README.txt                                                                                          
+```
+
+```
+Congratulations on solving the last level of this game!                                                   
+                                                                                                          
+At this moment, there are no more levels to play in this game. However, we are constantly working                                                                                                                    
+on new levels and will most likely expand this game with more levels soon.                                
+Keep an eye out for an announcement on our usual communication channels!                                  
+In the meantime, you could play some of our other wargames.                                               
+                                                     
+If you have an idea for an awesome new level, please let us know!
+```
+
