@@ -4,9 +4,12 @@ title: About
 permalink: /about/
 ---
 
-My name is Huỳnh Bá Hưng (or Hung Ba Huynh, since last and first name are swapped in Vietnamese). I like to program stuffs.
+My name is Hung. I like to program stuffs.
+
+Solving technical challenges at Boutique Technology.
 
 Graduated from Monash University with Bachelor of Computer Science.
 Currently based in Melbourne.
 
-<bahung1tt@gmail.com>
+Email: <bahung1tt@gmail.com>
+Github: <https://github.com/hbhungg>
