@@ -2,6 +2,7 @@
 layout: post
 title: OverTheWire Bandit
 date:  2023-02-18
+published: true
 ---
 
 These are my solution to the [Bandit game on overthewire.org](https://overthewire.org/wargames/bandit/). They are quite easy and serves as a good introduction to using Linux and its tools. *(I did them because im bored and wanted a memory refresh).*

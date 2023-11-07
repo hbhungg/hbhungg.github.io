@@ -2,6 +2,7 @@
 layout: post
 title: OverTheWire Leviathan 
 date:  2023-04-05
+published: true
 ---
 
 Solution to the [Leviathan game on overthewire.org](https://overthewire.org/wargames/leviathan/)
