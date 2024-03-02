@@ -11,5 +11,5 @@ Solving technical challenges at Beyond Zero Technology.
 Graduated from Monash University with Bachelor of Computer Science.
 Currently based in Melbourne.
 
-Email: <bahung1tt@gmail.com>
-Github: <github.com/hbhungg>
+Email: <hung.ba.huynh@proton.me>
+Github: [github.com/hbhungg](https://github.com/hbhungg)
