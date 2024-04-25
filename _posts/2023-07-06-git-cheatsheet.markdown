@@ -5,7 +5,8 @@ categories: jekyll update
 date: 2023-07-06
 published: true
 ---
-Mostly just comprise of Git (and Github) related stuff. Will probably structure this as a flow from setting up Git all the way to push and PR (the usual workflow).
+
+Git stuffs that I sometime forgot.
 
 <br>
 
@@ -46,5 +47,22 @@ This would include new added changes to the latest commit.
 
 <br>
 
-Feel free to message or PR me if you have any cool tricks.
+# 4. Change branch name (local and remote)
+
+
+Change local branch name.
+```
+git switch <old_name>
+git branch -m <new_name>
+```
+
+Push as new branch
+```
+git push origin -u <new_name>
+```
+
+Delete upstream old branch
+```
+git push origin --delete <old_name>
+```
 
