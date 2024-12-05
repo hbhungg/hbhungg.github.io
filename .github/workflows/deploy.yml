@@ -24,7 +24,7 @@ jobs:
     - name: Prepare PDF directory
       run: |
         mkdir -p pdf
-        cp tex/cv.pdf pdf/cv.pdf
+        cp cv.pdf pdf/cv.pdf
 
     - name: Setup Pages
       uses: actions/configure-pages@v5
