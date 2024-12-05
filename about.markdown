@@ -4,13 +4,14 @@ title: About
 permalink: /about/
 ---
 
-My name is Hung. I like to program stuffs.
+I'm Hung, based in Melbourne *(UTC +10)*. I like to program stuffs. 
 
-Solving technical challenges at Beyond Zero Technology.
+Currently solving technical challenges at Beyond Zero Technology as a Founding Data Engineer. 
 
-Graduated from Monash University with Bachelor of Computer Science.
-Currently based in Melbourne.
+Graduated from Monash University with Bachelor of Computer Science since 2022.
 
-My CV: [PDF](pdf/cv.pdf) (Made using LaTeX, build by GitHub CICD)
+
+### Get in touch
+My CV: [PDF](pdf/cv.pdf) (Made using LaTeX, built by GitHub CICD)
 Email: <hung.ba.huynh@proton.me>
 Github: [github.com/hbhungg](https://github.com/hbhungg)

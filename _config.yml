@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Think tank 
-email: bahung1tt@gmail.com
+email: hung.ba.huynh@proton.me
 description: >- # this means to ignore newlines until "baseurl:"
   Storage for randoms thoughts
 domain: "hbhung.github.io"
