@@ -1,5 +1,6 @@
-JUST A BLOG!
+# Just a small personal blog that I keep forgetting to update
 
-https://hbhungg.github.io
+Link: <https://hbhungg.github.io>
 
-TODO: Add baseurl
+Build with Jekyll (stock standard Github blog).
+
