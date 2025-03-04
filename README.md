@@ -4,3 +4,9 @@ Link: <https://hbhungg.github.io>
 
 Build with Jekyll (stock standard Github blog).
 
+Local run:
+```
+bundle install
+bundle exec jekyll serve
+```
+
