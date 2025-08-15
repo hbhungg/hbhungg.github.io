@@ -6,7 +6,7 @@ permalink: /about/
 
 I'm Hung, based in Melbourne *(UTC +10)*. I like to program stuffs. 
 
-Currently solving technical challenges at Beyond Zero Technology as a Founding Data Engineer. 
+Currently solving technical challenges at Fluency as a Software Engineer.
 
 Graduated from Monash University with Bachelor of Computer Science since 2022.
 
